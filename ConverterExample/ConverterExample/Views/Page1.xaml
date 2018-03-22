@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ConverterExample.Views.Page1"
+             xmlns:converters1="clr-namespace:ConverterExample.Converters;assembly=ConverterExample">
+   <ContentPage.Resources>
+       <ResourceDictionary>
+            <converters1:TextToColorConverter x:Key="TextToColorConverter"></converters1:TextToColorConverter>
+       </ResourceDictionary>
+   </ContentPage.Resources>
+        <StackLayout VerticalOptions="Center">
+           <Label Text="Name"></Label>
+           <Entry x:Name="name" TextColor="{Binding Converter={StaticResource TextToColorConverter}}"></Entry>
+            <Label Text="Departement"></Label>
+        <Entry x:Name="Departement"></Entry>
+            <Button Text="Afficher" ></Button>
+            
+    </StackLayout>
+   
+</ContentPage>

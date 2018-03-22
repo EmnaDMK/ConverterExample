@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ConverterExample"
+             xmlns:converters="clr-namespace:ConverterExample;assembly=ConverterExample"
+             x:Class="ConverterExample.MainPage">
+   
+<ContentPage.Resources>
+    <ResourceDictionary>
+            <converters:Check x:Key="Check"/>
+        </ResourceDictionary>
+</ContentPage.Resources>
+
+<StackLayout>
+            <StackLayout Orientation="Vertical"   Margin="10,10,10,0"  >
+                <ListView x:Name="AnimalListView"  HasUnevenRows="True"   BackgroundColor="White" SeparatorColor="Transparent" Rotation="270"  >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                        <ContentView Rotation="90" Padding="12">
+                            <!--<Image Source="{Binding  ImageURL}" HeightRequest="100" WidthRequest="120"></Image>-->
+                                <Image Source="{Binding source}"  HeightRequest="50" WidthRequest="50"></Image>
+                        </ContentView>
+
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+            </ListView>
+            </StackLayout>
+
+
+    <StackLayout Orientation="Horizontal">
+
+            <StackLayout Orientation="Horizontal" Padding="10,0,10,0"  HorizontalOptions="FillAndExpand" >
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                </Grid>
+                <!--<Button x:Name="b2"   Grid.ColumnSpan="5"  Grid.Row="0" Grid.Column="0" Clicked="Button_OnClick" Image="{Binding DogChecked, Converter={StaticResource Check }}" ></Button>-->
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="{Binding DogChecked,Converter={StaticResource Check}}" HeightRequest="20" WidthRequest="20">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnCheckDog"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label Text="Dog" TextColor="Black"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="{Binding CatChecked,Converter={StaticResource Check}}" HeightRequest="20" WidthRequest="20">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnCheckCat"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label Text="Cat" TextColor="Black"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="{Binding BirdChecked,Converter={StaticResource Check}}" HeightRequest="20" WidthRequest="20">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnCheckBird"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label Text="Bird" TextColor="Black"/>
+                </StackLayout>
+
+                <!--<Button x:Name="b3"    Grid.ColumnSpan="5"  TextColor="White"   HeightRequest="40" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="1" Clicked="Button_OnClickb3" Image="unchecked.png"></Button>
+                <Label Text="Bird Category"  Grid.Row="1" Grid.Column="1" ></Label>
+                <Button x:Name="b4"  Grid.ColumnSpan="5"  TextColor="White"   HeightRequest="40" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="2" Clicked="Button_OnClickb4" Image="unchecked.png"></Button>
+                <Label Text="Dog Category"   Grid.Row="1" Grid.Column="2" ></Label>-->
+            </StackLayout>
+        </StackLayout>
+</StackLayout>
+
+   
+
+
+</ContentPage>
+
+
+
+
+
+
+
+
+
+
+
+           
+
+
+
+
+
+
+
+
+
+
+
+           
+
